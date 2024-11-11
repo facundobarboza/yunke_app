@@ -5,6 +5,8 @@ import 'package:yunke_app/screens/screens.dart';
 import 'package:yunke_app/services/services.dart';
 
 class CalendarScreen extends StatelessWidget {
+  const CalendarScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final calendarsService = Provider.of<CalendarsService>(context);
@@ -21,7 +23,7 @@ class CalendarScreen extends StatelessWidget {
         ),
         elevation: 0,
       ),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,96 +73,109 @@ class _MatchDetailCalendar extends StatelessWidget {
             )
           ]),
           Card(
-            color: Colors.white,
-            margin: const EdgeInsets.only(top: 5, bottom: 5),
-            elevation: 1,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              child: Column(
+              color: Colors.white,
+              margin: const EdgeInsets.only(top: 5, bottom: 5),
+              elevation: 1,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SizedBox(height: 5),
-                  Row(
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Text(
+                            calendar.homeTeamName,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontSize: 15,
+                                letterSpacing: -1,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey.shade700),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Column(
                     children: [
-                      Text(
-                        calendar.homeTeamName,
-                        style: TextStyle(
-                            fontSize: 15,
-                            letterSpacing: -1,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey.shade700),
-                      ),
-                      const Spacer(),
-                      Column(
-                        children: [
-                          calendar.homeTeamImage == null
-                              ? const Image(
-                                  image: AssetImage('assets/no-image.jpg'),
-                                  //width: 35,
-                                  height: 45,
-                                  fit: BoxFit.cover)
-                              : FadeInImage(
-                                  placeholder:
-                                      const AssetImage('assets/no-image.jpg'),
-                                  image: NetworkImage(calendar.homeTeamImage!),
-                                  //width: 35,
-                                  height: 35,
-                                  fit: BoxFit.cover),
-                        ],
-                      ),
-                      const SizedBox(width: 10),
-                      Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: Colors.black87,
-                                borderRadius: BorderRadius.circular(3)),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 5, vertical: 2),
-                            child: Text(
-                              calendar.hour,
-                              style: const TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(width: 10),
-                      Column(
-                        children: [
-                          calendar.awayTeamImage == null
-                              ? const Image(
-                                  image: AssetImage('assets/no-image.jpg'),
-                                  //width: 35,
-                                  height: 45,
-                                  fit: BoxFit.cover)
-                              : FadeInImage(
-                                  placeholder:
-                                      const AssetImage('assets/no-image.jpg'),
-                                  image: NetworkImage(calendar.awayTeamImage!),
-                                  //width: 35,
-                                  height: 35,
-                                  fit: BoxFit.cover),
-                        ],
-                      ),
-                      const Spacer(),
-                      Text(
-                        calendar.awayTeamName,
-                        style: TextStyle(
-                            fontSize: 15,
-                            letterSpacing: -1,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey.shade700),
-                      ),
+                      calendar.homeTeamImage == null
+                          ? const Image(
+                              image: AssetImage('assets/no-image.jpg'),
+                              //width: 35,
+                              height: 45,
+                              fit: BoxFit.cover)
+                          : FadeInImage(
+                              placeholder:
+                                  const AssetImage('assets/no-image.jpg'),
+                              image: NetworkImage(calendar.homeTeamImage!),
+                              //width: 35,
+                              height: 35,
+                              fit: BoxFit.cover),
                     ],
                   ),
-                  const SizedBox(height: 5),
+                  Column(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.black87,
+                            borderRadius: BorderRadius.circular(3)),
+                            margin: const EdgeInsets.only(top: 20, bottom: 20, left: 10, right: 10),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 5, vertical: 2),
+                        child: Text(
+                          calendar.hour,
+                          style: const TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      calendar.awayTeamImage == null
+                          ? const Image(
+                              image: AssetImage('assets/no-image.jpg'),
+                              //width: 35,
+                              height: 45,
+                              fit: BoxFit.cover)
+                          : FadeInImage(
+                              placeholder:
+                                  const AssetImage('assets/no-image.jpg'),
+                              image: NetworkImage(calendar.awayTeamImage!),
+                              //width: 35,
+                              height: 35,
+                              fit: BoxFit.cover),
+                    ],
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Text(
+                            calendar.awayTeamName,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontSize: 15,
+                                letterSpacing: -1,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey.shade700),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
                 ],
-              ),
-            ),
-          ),
+              )),
         ],
       ),
     );

@@ -8,7 +8,7 @@ class MatchSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 170,
       child: Column(

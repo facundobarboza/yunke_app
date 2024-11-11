@@ -45,7 +45,6 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Slideshow(sponsors: sponsorsService.sponsors),
-            //MovieSlider(sponsors: sponsorsService.),
             MatchSlider(matchs: matchsService.matchs),
             const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
