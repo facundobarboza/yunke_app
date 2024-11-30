@@ -14,7 +14,8 @@ class AppState extends StatelessWidget {
         ChangeNotifierProvider(create: ( _ ) => AuthService()),
         ChangeNotifierProvider(create: ( _ ) => SponsorsService()),
         ChangeNotifierProvider(create: ( _ ) => MatchsService()),
-        ChangeNotifierProvider(create: ( _ ) => CalendarsService())
+        ChangeNotifierProvider(create: ( _ ) => CalendarsService()),
+        ChangeNotifierProvider(create: ( _ ) => PlayersService())
       ],
       child: const MyApp(),
     );
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
         'home'     : (_) => HomeScreen(),
         'details'  : (_) => DetailsScreen(),
         'calendar' : (_) => CalendarScreen(),
-        'checking' : (_) => CheckAuthScreen()
+        'checking' : (_) => CheckAuthScreen(),
+        'players'  : (_) => PlayersScreen()
       },
       theme: ThemeData.light().copyWith(
         appBarTheme: const AppBarTheme(

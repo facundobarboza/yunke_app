@@ -62,8 +62,7 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GestureDetector(
-                        onTap: () => Navigator.pushNamed(context, 'details',
-                            arguments: 'movie-instance'),
+                        onTap: () => Navigator.pushNamed(context, 'players'),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(5),
                           child: const FadeInImage(
@@ -92,8 +91,7 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GestureDetector(
-                        onTap: () => Navigator.pushNamed(context, 'details',
-                            arguments: 'movie-instance'),
+                        onTap: () => Navigator.pushNamed(context, 'players'),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(5),
                           child: const FadeInImage(
